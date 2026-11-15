@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tungarix · Arda</title>
+<meta name="description" content="Tungarix: Aktenak kurucu ortağı. Hesaplar ve projeler tek sayfada.">
+<meta name="theme-color" content="#080B14">
+<meta property="og:title" content="Tungarix">
+<meta property="og:description" content="Build things. Learn from them. Make the next one better.">
+<meta property="og:image" content="https://tungarix.github.io/img/scene-1100.webp">
+<link rel="icon" href="img/avatar.jpg">
+<style>
+@font-face{font-family:Archivo;font-weight:400 800;font-display:swap;src:url(fonts/archivo-latin-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Archivo;font-weight:400 800;font-display:swap;src:url(fonts/archivo-latin-ext-normal.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Plex Mono';font-weight:500;font-display:swap;src:url(fonts/plex-mono-latin-500.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Plex Mono';font-weight:500;font-display:swap;src:url(fonts/plex-mono-latin-ext-500.woff2) format('woff2');unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+1E00-1E9F}
+
+/* Tungarix maskot sistemi: gece laciverti, altın (apolet/madalyon), kürk beyazı */
+:root{
+  --night:#080B14;--panel:#0E1322;--panel-2:#151C31;--line:#222B45;
+  --fur:#E5E7EB;--fur-2:#C3C8D4;--mute:#8C94AA;
+  --gold:#D4A72C;--gold-hi:#E8C35A;
+}
+*{box-sizing:border-box;margin:0}
+html{background:var(--night);color:var(--fur);font-family:Archivo,'Segoe UI',system-ui,sans-serif;-webkit-text-size-adjust:100%}
+body{min-height:100svh;line-height:1.4}
+a{color:inherit;text-decoration:none}
+
+/* sahne: tam ekran, sabit; kurt sağda */
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden}
+.bg img{width:100%;height:100%;object-fit:cover;object-position:70% 50%}
+.bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(8,11,20,.55) 0%,rgba(8,11,20,.86) 30%,rgba(8,11,20,.86) 58%,rgba(8,11,20,.12) 78%,rgba(8,11,20,.3) 100%),
+             linear-gradient(180deg,transparent 65%,rgba(8,11,20,.8))}
+
+/* tek ekran: içerik dikeyde ortalı, boyutlar ekran yüksekliğine göre küçülür */
+main{width:100%;max-width:440px;min-height:100svh;margin:0 auto;padding:clamp(14px,3vh,40px) 16px;
+  display:flex;flex-direction:column;justify-content:center;gap:clamp(5px,.9vh,9px)}
+
+.head{display:flex;flex-direction:column;align-items:center;text-align:center;margin-bottom:clamp(2px,1vh,10px)}
+.avatar{width:clamp(64px,11vh,104px);height:clamp(64px,11vh,104px);border-radius:50%;object-fit:cover;border:3px solid var(--gold);
+  box-shadow:0 0 0 4px var(--night),0 12px 28px rgba(0,0,0,.55)}
+.eyebrow{margin-top:clamp(8px,1.6vh,16px);font-family:'Plex Mono',ui-monospace,monospace;font-weight:500;font-size:.68rem;letter-spacing:.2em;
+  color:var(--mute);display:flex;align-items:center;gap:10px;text-transform:uppercase}
+.eyebrow i{width:7px;height:7px;background:var(--gold)}
+h1{margin-top:4px;font-family:Bahnschrift,'Arial Narrow',Archivo,sans-serif;font-weight:700;font-stretch:75%;
+  text-transform:uppercase;letter-spacing:.01em;font-size:clamp(2.4rem,7vh,4rem);line-height:.92}
+.bio{margin-top:clamp(4px,1vh,10px);color:var(--fur-2);font-size:.9rem}
+
+.lab{margin:clamp(4px,1vh,10px) 2px 0;font-family:'Plex Mono',ui-monospace,monospace;font-weight:500;font-size:.68rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px}
+.lab::after{content:"";flex:1;height:1px;background:var(--line)}
+
+.link,.app{background:color-mix(in srgb,var(--panel) 86%,transparent);border:1px solid var(--line);border-radius:10px;
+  backdrop-filter:blur(8px);transition:background .15s,border-color .15s,transform .15s}
+.link:hover,.app:hover{background:var(--panel-2);border-color:var(--gold)}
+.link:active,.app:active{transform:scale(.985)}
+.link:focus-visible,.app:focus-visible{outline:2px solid var(--gold-hi);outline-offset:2px}
+
+.link{display:flex;align-items:center;gap:12px;min-height:clamp(46px,6.4vh,56px);padding:6px 14px 6px 7px}
+.ic{flex:none;display:grid;place-items:center;width:36px;height:36px;border-radius:7px;background:var(--panel-2);color:var(--gold-hi)}
+.ic svg{width:19px;height:19px;fill:currentColor}
+.tx{flex:1;min-width:0;display:flex;align-items:baseline;gap:10px}
+.tx b{font-weight:800;font-size:.95rem;white-space:nowrap}
+.tx small{color:var(--mute);font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ar{flex:none;color:var(--mute);font-weight:800}
+
+.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.app{display:flex;flex-direction:column;justify-content:center;min-height:clamp(46px,6.4vh,56px);padding:6px 8px;text-align:center}
+.app b{font-weight:800;font-size:.8rem;line-height:1.15}
+.app small{margin-top:2px;color:var(--mute);font-size:.66rem}
+
+footer{margin-top:clamp(6px,1.4vh,14px);text-align:center;font-family:'Plex Mono',ui-monospace,monospace;color:var(--mute);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase}
+
+/* telefon: dikey sahne genişliğe oturur; başlık gökyüzünde, linkler alta yaslı, arada kurt görünür.
+   avatar gizli: aynı kurt iki kez görünmesin */
+@media (max-width:760px){
+  .bg img{height:auto;object-position:50% 0}
+  .bg::after{background:linear-gradient(180deg,rgba(8,11,20,.35) 0%,rgba(8,11,20,.05) 16%,rgba(8,11,20,.1) 38%,rgba(8,11,20,.86) 48%,rgba(8,11,20,.9) 100%)}
+  .avatar{display:none}
+  main{justify-content:flex-start;padding-top:20px;padding-bottom:16px}
+  .head{margin-bottom:auto}
+  .eyebrow{margin-top:0}
+  .head{text-shadow:0 1px 10px rgba(0,0,0,.85)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true">
+  <picture>
+    <source media="(max-width:760px)" srcset="img/scene-mobile.webp">
+    <img src="img/scene-1100.webp" srcset="img/scene-1100.webp 1100w, img/scene.webp 2000w" sizes="100vw" alt="">
+  </picture>
+</div>
+
+<main>
+  <header class="head">
+    <img class="avatar" src="img/avatar.jpg" width="104" height="104" alt="Tungarix kurt avatarı">
+    <p class="eyebrow" lang="en"><i></i>Arda · engineer in progress</p>
+    <h1 lang="en">Tungarix</h1>
+    <p class="bio" lang="en">Build things. Learn from them. Make the next one better.</p>
+  </header>
+
+  <p class="lab" lang="en">Tungarix</p>
+  <a class="link" href="https://x.com/Tungarix" target="_blank" rel="noopener">
+    <span class="ic"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.4 5.9L18.9 2zm-1.1 18h1.7L6.3 3.9H4.5L17.8 20z"/></svg></span>
+    <span class="tx"><b>X</b><small>@Tungarix</small></span><span class="ar">↗</span>
+  </a>
+  <a class="link" href="https://github.com/tungarix" target="_blank" rel="noopener">
+    <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></span>
+    <span class="tx"><b>GitHub</b><small>açık kaynak araçlar ve notlar</small></span><span class="ar">↗</span>
+  </a>
+
+  <p class="lab">Aktenak · stüdyo</p>
+  <a class="link" href="https://aktenak.tech" target="_blank" rel="noopener">
+    <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4zM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4H4.3zm.8 2h3c.3 1.3.8 2.5 1.4 3.6A8 8 0 0 1 5.1 16zm3-8h-3a8 8 0 0 1 4.4-3.6C8.9 5.5 8.4 6.7 8.1 8zM12 20c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4zm.3 5.6c.6-1.1 1.1-2.3 1.4-3.6h3a8 8 0 0 1-4.4 3.6zm1.7-5.6a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4h-3.4z"/></svg></span>
+    <span class="tx"><b>aktenak.tech</b><small>indie oyun ve yazılım stüdyosu</small></span><span class="ar">↗</span>
+  </a>
+  <a class="link" href="https://x.com/aktenakstudio" target="_blank" rel="noopener">
+    <span class="ic"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.4 5.9L18.9 2zm-1.1 18h1.7L6.3 3.9H4.5L17.8 20z"/></svg></span>
+    <span class="tx"><b>X</b><small>@aktenakstudio</small></span><span class="ar">↗</span>
+  </a>
+  <a class="link" href="https://instagram.com/aktenak" target="_blank" rel="noopener">
+    <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM16.5 2h-9A5.5 5.5 0 0 0 2 7.5v9A5.5 5.5 0 0 0 7.5 22h9a5.5 5.5 0 0 0 5.5-5.5v-9A5.5 5.5 0 0 0 16.5 2zm3.7 14.5a3.7 3.7 0 0 1-3.7 3.7h-9a3.7 3.7 0 0 1-3.7-3.7v-9a3.7 3.7 0 0 1 3.7-3.7h9a3.7 3.7 0 0 1 3.7 3.7v9z"/></svg></span>
+    <span class="tx"><b>Instagram</b><small>@aktenak</small></span><span class="ar">↗</span>
+  </a>
+  <a class="link" href="mailto:aktenak@proton.me">
+    <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm17 2.4-8 6.1-8-6.1V18h16V6.4zM5 6l7 5.3L19 6H5z"/></svg></span>
+    <span class="tx"><b>Mail</b><small>aktenak@proton.me</small></span><span class="ar">→</span>
+  </a>
+  <div class="apps">
+    <a class="app" href="https://aktenak.tech/projeler/takvim/" target="_blank" rel="noopener"><b>Takvim</b><small>Win · Android</small></a>
+    <a class="app" href="https://aktenak.tech/projeler/habit-tracker/" target="_blank" rel="noopener"><b lang="en">Habit Tracker</b><small>Win · Android</small></a>
+    <a class="app" href="https://aktenak.tech/projeler/dosya-dolabi/" target="_blank" rel="noopener"><b>Dosya Dolabı</b><small>Android</small></a>
+    <a class="app" href="https://aktenak.tech/projeler/pati/" target="_blank" rel="noopener"><b>Pati</b><small>Windows</small></a>
+  </div>
+
+  <footer lang="en">tungarix.github.io · 2026</footer>
+</main>
+</body>
+</html>
