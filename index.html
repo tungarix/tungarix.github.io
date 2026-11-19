@@ -66,7 +66,9 @@ h1{margin-top:4px;font-family:Bahnschrift,'Arial Narrow',Archivo,sans-serif;font
 .tx small{color:var(--mute);font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ar{flex:none;color:var(--mute);font-weight:800}
 
-.apps{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.apps{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.apps .app{grid-column:span 2}
+.apps .app:nth-child(n+4){grid-column:span 3}
 .app{display:flex;flex-direction:column;justify-content:center;min-height:clamp(46px,6.4vh,56px);padding:6px 8px;text-align:center}
 .app b{font-weight:800;font-size:.8rem;line-height:1.15}
 .app small{margin-top:2px;color:var(--mute);font-size:.66rem}
@@ -134,6 +136,7 @@ footer{margin-top:clamp(6px,1.4vh,14px);text-align:center;font-family:'Plex Mono
     <a class="app" href="https://aktenak.tech/projeler/takvim/" target="_blank" rel="noopener"><b>Takvim</b><small>Win · Android</small></a>
     <a class="app" href="https://aktenak.tech/projeler/habit-tracker/" target="_blank" rel="noopener"><b lang="en">Habit Tracker</b><small>Win · Android</small></a>
     <a class="app" href="https://aktenak.tech/projeler/dosya-dolabi/" target="_blank" rel="noopener"><b>Dosya Dolabı</b><small>Android</small></a>
+    <a class="app" href="https://aktenak.tech/projeler/butce-takip/" target="_blank" rel="noopener"><b>Bütçe Takip</b><small>Android</small></a>
     <a class="app" href="https://aktenak.tech/projeler/pati/" target="_blank" rel="noopener"><b>Pati</b><small>Windows</small></a>
   </div>
 
