@@ -69,6 +69,12 @@ h1{margin-top:4px;font-family:Bahnschrift,'Arial Narrow',Archivo,sans-serif;font
 .apps{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
 .apps .app{grid-column:span 2}
 .apps .app:nth-child(n+4){grid-column:span 3}
+.apps.duo{grid-template-columns:repeat(2,1fr)}.apps.trio{grid-template-columns:repeat(3,1fr)}
+.apps.duo .app,.apps.trio .app{grid-column:auto;flex-direction:row;align-items:center;justify-content:flex-start;gap:8px;text-align:left;padding:5px 8px 5px 6px}
+.apps.duo .app b,.apps.trio .app b{display:block}
+.apps.duo .ic,.apps.trio .ic{width:30px;height:30px}
+.apps.duo .ic svg,.apps.trio .ic svg{width:16px;height:16px}
+.apps .t{min-width:0;display:flex;flex-direction:column}.apps .t small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .app{display:flex;flex-direction:column;justify-content:center;min-height:clamp(46px,6.4vh,56px);padding:6px 8px;text-align:center}
 .app b{font-weight:800;font-size:.8rem;line-height:1.15}
 .app small{margin-top:2px;color:var(--mute);font-size:.66rem}
@@ -106,32 +112,22 @@ footer{margin-top:clamp(6px,1.4vh,14px);text-align:center;font-family:'Plex Mono
   </header>
 
   <p class="lab" lang="en">Tungarix</p>
-  <a class="link" href="https://x.com/Tungarix" target="_blank" rel="noopener">
-    <span class="ic"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.4 5.9L18.9 2zm-1.1 18h1.7L6.3 3.9H4.5L17.8 20z"/></svg></span>
-    <span class="tx"><b>X</b><small>@Tungarix</small></span><span class="ar">↗</span>
-  </a>
-  <a class="link" href="https://github.com/tungarix" target="_blank" rel="noopener">
-    <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></span>
-    <span class="tx"><b>GitHub</b><small>açık kaynak araçlar ve notlar</small></span><span class="ar">↗</span>
-  </a>
+
+  <div class="apps duo">
+    <a class="app" href="https://x.com/Tungarix" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.4 5.9L18.9 2zm-1.1 18h1.7L6.3 3.9H4.5L17.8 20z"/></svg></span><span class="t"><b>X</b><small>@Tungarix</small></span></a>
+    <a class="app" href="https://github.com/tungarix" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></span><span class="t"><b>GitHub</b><small>açık kaynak araçlar</small></span></a>
+  </div>
 
   <p class="lab">Aktenak · stüdyo</p>
   <a class="link" href="https://aktenak.tech" target="_blank" rel="noopener">
     <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm6.9 6h-3a15.7 15.7 0 0 0-1.4-3.6A8 8 0 0 1 18.9 8zM12 4c.8 1.2 1.5 2.5 1.9 4h-3.8c.4-1.5 1.1-2.8 1.9-4zM4.3 14a8.2 8.2 0 0 1 0-4h3.4a16.5 16.5 0 0 0 0 4H4.3zm.8 2h3c.3 1.3.8 2.5 1.4 3.6A8 8 0 0 1 5.1 16zm3-8h-3a8 8 0 0 1 4.4-3.6C8.9 5.5 8.4 6.7 8.1 8zM12 20c-.8-1.2-1.5-2.5-1.9-4h3.8c-.4 1.5-1.1 2.8-1.9 4zm2.3-6H9.7a14.7 14.7 0 0 1 0-4h4.6a14.7 14.7 0 0 1 0 4zm.3 5.6c.6-1.1 1.1-2.3 1.4-3.6h3a8 8 0 0 1-4.4 3.6zm1.7-5.6a16.5 16.5 0 0 0 0-4h3.4a8.2 8.2 0 0 1 0 4h-3.4z"/></svg></span>
     <span class="tx"><b>aktenak.tech</b><small>indie oyun ve yazılım stüdyosu</small></span><span class="ar">↗</span>
   </a>
-  <a class="link" href="https://x.com/aktenakstudio" target="_blank" rel="noopener">
-    <span class="ic"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.4 5.9L18.9 2zm-1.1 18h1.7L6.3 3.9H4.5L17.8 20z"/></svg></span>
-    <span class="tx"><b>X</b><small>@aktenakstudio</small></span><span class="ar">↗</span>
-  </a>
-  <a class="link" href="https://instagram.com/aktenak" target="_blank" rel="noopener">
-    <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM16.5 2h-9A5.5 5.5 0 0 0 2 7.5v9A5.5 5.5 0 0 0 7.5 22h9a5.5 5.5 0 0 0 5.5-5.5v-9A5.5 5.5 0 0 0 16.5 2zm3.7 14.5a3.7 3.7 0 0 1-3.7 3.7h-9a3.7 3.7 0 0 1-3.7-3.7v-9a3.7 3.7 0 0 1 3.7-3.7h9a3.7 3.7 0 0 1 3.7 3.7v9z"/></svg></span>
-    <span class="tx"><b>Instagram</b><small>@aktenak</small></span><span class="ar">↗</span>
-  </a>
-  <a class="link" href="https://discord.gg/aktenak" target="_blank" rel="noopener">
-    <span class="ic"><svg viewBox="0 0 24 24"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18 18 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1a13 13 0 0 1-2-.9l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 .9l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7zM8.1 15.4c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4zm7.8 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4z"/></svg></span>
-    <span class="tx"><b>Discord</b><small>topluluk sunucusu</small></span><span class="ar">↗</span>
-  </a>
+  <div class="apps trio">
+    <a class="app" href="https://x.com/aktenakstudio" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><path d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.9-6.4L6.3 22H3.2l7.3-8.3L1 2h6.3l4.4 5.9L18.9 2zm-1.1 18h1.7L6.3 3.9H4.5L17.8 20z"/></svg></span><span class="t"><b>X</b><small>@aktenakstudio</small></span></a>
+    <a class="app" href="https://instagram.com/aktenak" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4zM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4zM16.5 2h-9A5.5 5.5 0 0 0 2 7.5v9A5.5 5.5 0 0 0 7.5 22h9a5.5 5.5 0 0 0 5.5-5.5v-9A5.5 5.5 0 0 0 16.5 2zm3.7 14.5a3.7 3.7 0 0 1-3.7 3.7h-9a3.7 3.7 0 0 1-3.7-3.7v-9a3.7 3.7 0 0 1 3.7-3.7h9a3.7 3.7 0 0 1 3.7 3.7v9z"/></svg></span><span class="t"><b>Instagram</b><small>@aktenak</small></span></a>
+    <a class="app" href="https://discord.gg/aktenak" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><path d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18 18 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1a13 13 0 0 1-2-.9l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 .9l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7zM8.1 15.4c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4zm7.8 0c-1.2 0-2.1-1.1-2.1-2.4s.9-2.4 2.1-2.4 2.1 1.1 2.1 2.4-.9 2.4-2.1 2.4z"/></svg></span><span class="t"><b>Discord</b><small>topluluk</small></span></a>
+  </div>
   <a class="link" href="mailto:aktenak@proton.me">
     <span class="ic"><svg viewBox="0 0 24 24"><path d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1zm17 2.4-8 6.1-8-6.1V18h16V6.4zM5 6l7 5.3L19 6H5z"/></svg></span>
     <span class="tx"><b>Mail</b><small>aktenak@proton.me</small></span><span class="ar">→</span>
